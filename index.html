@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using OpenLayers with Vite</title>
+    <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
+    <script src="https://unpkg.com/elm-pep@1.0.6/dist/elm-pep.js"></script>
+    <!-- The lines below are only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,TextDecoder"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.3/minified.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div id="map" class="map"></div>
+    <div style="display: none;">
+        <!-- Clickable label for Vienna -->
+        <a class="overlay" id="vienna" target="_blank" href="https://en.wikipedia.org/wiki/Vienna">Vienna</a>
+        <div id="marker" title="Marker"></div>
+    </div>
+    <div class="overlay-container card">
+        <div class="card-body">
+            <div class="card-title">
+                <span>Comune:</span>
+                <span class="overlay-text" id="comune"></span>
+            </div>
+            <div class="card-text">
+                <span>Cap:</span>
+                <span class="overlay-text" id="cap"></span>
+                <br>
+                <span>Codice Istat:</span>
+                <span class="overlay-text" id="codistat"></span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <span>
+                Per verificare la copertura di un agenzia a seconda delle aree definite dai Cap
+            </span>
+            <br>
+            <span>
+                momentaneamente per fare le prove ci sono le agenzie con id:1 e 2
+            </span>
+        </div>
+        <div class="row mt-2">
+            <div class="coll-8">
+                <input type="text" id="epsg-query" placeholder="Inserire id agenzia" class="form-control" size="50" />
+                <!-- <span id="epsg-result"></span> -->
+            </div>
+            <div class="coll-4">
+                <button id="epsg-search" class="btn btn-primary ml-2">Search</button>
+                <button id="reset-search" class="btn btn-danger ml-2">Reset</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="coll-12">
+                <div id="mouse-position">coordinate del mouse: </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="./main.js"></script>
+    <script src="./v6.13.0-dist/ol.js"></script>
+    <link rel="stylesheet" href="./v6.13.0-dist/ol.css">
+</body>
+
+</html>
